@@ -1,0 +1,3 @@
+# Block direct access to the SQLite database and webhook log over HTTP.
+# Apache only — if your host runs nginx, configure the equivalent in the server config.
+Require all denied
