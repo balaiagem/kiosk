@@ -1,0 +1,15 @@
+# Block direct HTTP access to credential files and shared library code.
+# Uses <Files> only — <DirectoryMatch> is server-config-only and triggers
+# 500 errors on shared cPanel hosting.
+
+<Files "config.php">
+    Require all denied
+</Files>
+
+<Files "config.example.php">
+    Require all denied
+</Files>
+
+# Block any PHP file inside the lib/ subfolder when accessed directly.
+# (Apache will still allow PHP to require_once them from neighbor files.)
+RedirectMatch 403 ^/kiosk/api/lib(/|$)
