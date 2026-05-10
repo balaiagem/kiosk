@@ -1,0 +1,575 @@
+{
+  "currency": "MXN",
+  "currency_symbol": "$",
+  "tax_included": true,
+
+  "modifier_groups": {
+    "bowl_spreads": {
+      "name": "Spreads",
+      "min": 0, "max": 99,
+      "options": [
+        {"id": "cacahuate",      "name": "Crema de cacahuate",         "price": 0},
+        {"id": "almendras",      "name": "Crema de almendras",         "price": 5},
+        {"id": "lechera",        "name": "Lechera",                    "price": 0},
+        {"id": "miel",           "name": "Miel",                       "price": 0},
+        {"id": "chia_pudding",   "name": "Chia pudding",               "price": 0},
+        {"id": "nutella",        "name": "Nutella",                    "price": 0},
+        {"id": "maca_canela",    "name": "Maca-canela",                "price": 5},
+        {"id": "cac_matcha",     "name": "Crema de Cacahuate Matcha",  "price": 5},
+        {"id": "pistache_coco",  "name": "Crema de pistache y coco",   "price": 5},
+        {"id": "mango_maracuya", "name": "Mousse de mango-maracuyá",   "price": 0}
+      ]
+    },
+    "bowl_granel": {
+      "name": "Granel",
+      "min": 0, "max": 99,
+      "options": [
+        {"id": "granola",     "name": "Granola",              "price": 0},
+        {"id": "amaranto",    "name": "Amaranto",             "price": 0},
+        {"id": "cacahuate",   "name": "Cacahuate",            "price": 0},
+        {"id": "almendra",    "name": "Almendra",             "price": 0},
+        {"id": "nueces",      "name": "Nueces",               "price": 0},
+        {"id": "leche_nido",  "name": "Leche nido",           "price": 0},
+        {"id": "pacoquinha",  "name": "Paçoquinha",           "price": 0},
+        {"id": "cacao_nibs",  "name": "Cacao nibs",           "price": 0},
+        {"id": "coco",        "name": "Coco rallado",         "price": 0},
+        {"id": "chia",        "name": "Chia seeds",           "price": 0},
+        {"id": "chocolate",   "name": "Chispas de chocolate", "price": 0},
+        {"id": "quinoa",      "name": "Quinoa inflada",       "price": 0},
+        {"id": "quinoa_choc", "name": "Quinoa con chocolate", "price": 0},
+        {"id": "groovies",    "name": "Groovies Cereal Quinoa","price": 0}
+      ]
+    },
+    "bowl_frutas": {
+      "name": "Frutas",
+      "min": 0, "max": 99,
+      "options": [
+        {"id": "platano",   "name": "Plátano",   "price": 0},
+        {"id": "fresa",     "name": "Fresa",     "price": 0},
+        {"id": "mango",     "name": "Mango",     "price": 0},
+        {"id": "blueberry", "name": "Blueberry", "price": 5},
+        {"id": "kiwi",      "name": "Kiwi",      "price": 0}
+      ]
+    },
+    "bowl_proteina": {
+      "name": "Proteína",
+      "min": 0, "max": 99,
+      "options": [
+        {"id": "whey",     "name": "Whey Protein",  "price": 15},
+        {"id": "vegan",    "name": "Vegan Protein", "price": 15},
+        {"id": "creatina", "name": "Creatina",      "price": 15}
+      ]
+    },
+    "leche": {
+      "name": "Leche",
+      "min": 1, "max": 1,
+      "options": [
+        {"id": "entera",       "name": "Entera",        "price": 0},
+        {"id": "deslactosada", "name": "Deslactosada",  "price": 3},
+        {"id": "coco",         "name": "Coco",          "price": 6},
+        {"id": "almendras",    "name": "Almendras",     "price": 6}
+      ]
+    },
+    "temperatura": {
+      "name": "Caliente / Frío",
+      "min": 1, "max": 1,
+      "options": [
+        {"id": "caliente", "name": "Caliente", "price": 0},
+        {"id": "frio",     "name": "Frío",     "price": 0}
+      ]
+    },
+    "endulzante": {
+      "name": "Endulzante",
+      "min": 1, "max": 1,
+      "options": [
+        {"id": "azucar",  "name": "Azúcar",  "price": 0},
+        {"id": "splenda", "name": "Splenda", "price": 0},
+        {"id": "stevia",  "name": "Stevia",  "price": 0}
+      ]
+    },
+    "relleno_2": {
+      "name": "Rellenos (elige 2)",
+      "min": 2, "max": 2,
+      "options": [
+        {"id": "chorizo", "name": "Chorizo Español", "price": 0},
+        {"id": "ham",     "name": "Ham & Cheese",   "price": 0},
+        {"id": "romeo",   "name": "Romeo & Julieta","price": 0},
+        {"id": "nutella", "name": "Nutella y queso","price": 0}
+      ]
+    },
+    "relleno_4": {
+      "name": "Rellenos (elige 4)",
+      "min": 4, "max": 4,
+      "options": [
+        {"id": "chorizo", "name": "Chorizo Español", "price": 0},
+        {"id": "ham",     "name": "Ham & Cheese",   "price": 0},
+        {"id": "romeo",   "name": "Romeo & Julieta","price": 0},
+        {"id": "nutella", "name": "Nutella y queso","price": 0}
+      ]
+    },
+    "botes_toppings": {
+      "name": "Toppings (hasta 3)",
+      "min": 0, "max": 3,
+      "options": [
+        {"id": "granola",      "name": "Granola",              "price": 0},
+        {"id": "amaranto",     "name": "Amaranto",             "price": 0},
+        {"id": "quinoa",       "name": "Quinoa inflada",       "price": 0},
+        {"id": "cacahuate",    "name": "Cacahuate",            "price": 0},
+        {"id": "almendra",     "name": "Almendra",             "price": 0},
+        {"id": "nueces",       "name": "Nueces",               "price": 0},
+        {"id": "leche_nido",   "name": "Leche nido",           "price": 0},
+        {"id": "pacoquinha",   "name": "Paçoquinha",           "price": 0},
+        {"id": "quinoa_choc",  "name": "Quinoa con chocolate", "price": 0},
+        {"id": "cacahuate_cr", "name": "Crema de cacahuate",   "price": 0},
+        {"id": "almendras_cr", "name": "Crema de almendras",   "price": 5},
+        {"id": "matcha_cr",    "name": "Crema de Matcha",      "price": 5},
+        {"id": "pistache",     "name": "Spread pistache",      "price": 5},
+        {"id": "chia",         "name": "Chia pudding",         "price": 0},
+        {"id": "lotus_spread", "name": "Spread Lotus Biscoff", "price": 0},
+        {"id": "manzana",      "name": "Crema de manzana y canela", "price": 5},
+        {"id": "miel",         "name": "Miel",                 "price": 0},
+        {"id": "lechera",      "name": "Lechera",              "price": 0},
+        {"id": "nutella",      "name": "Nutella",              "price": 0},
+        {"id": "coco",         "name": "Coco rallado",         "price": 0},
+        {"id": "cacao_nibs",   "name": "Cacao nibs",           "price": 0},
+        {"id": "chocolate",    "name": "Chispas de chocolate", "price": 0},
+        {"id": "lotus_galleta","name": "Galleta Lotus Biscoff","price": 0}
+      ]
+    }
+  },
+
+  "categories": [
+    {
+      "id": "bowls",
+      "name": "🫐 Bowls",
+      "items": [
+        {
+          "id": "bowl_acai",
+          "name": "Açaí Bowl",
+          "description": "Bowl de açaí con toppings",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/5a19d8b2-0d62-4f75-af62-d98dc6846417_image.jpeg",
+          "sizes": [
+            {"id": "chico",  "label": "Chico (12 oz)",  "price": 160},
+            {"id": "grande", "label": "Grande (16 oz)", "price": 185},
+            {"id": "selva",  "label": "Selva (22 oz)",  "price": 210}
+          ],
+          "modifier_groups": ["bowl_spreads", "bowl_granel", "bowl_frutas", "bowl_proteina"]
+        },
+        {
+          "id": "bowl_acai_yogurt",
+          "name": "Açaí + Yogurt Bowl",
+          "description": "Bowl de açaí con yogurt griego y toppings",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/ea5ea686-d7e9-4d18-aa8c-eff64bca9a8d_image.png",
+          "sizes": [
+            {"id": "chico",  "label": "Chico (12 oz)",  "price": 160},
+            {"id": "grande", "label": "Grande (16 oz)", "price": 185},
+            {"id": "selva",  "label": "Selva (22 oz)",  "price": 210}
+          ],
+          "modifier_groups": ["bowl_spreads", "bowl_granel", "bowl_frutas", "bowl_proteina"]
+        },
+        {
+          "id": "bowl_yogurt",
+          "name": "Yogurt Bowl",
+          "description": "Bowl de yogurt griego con toppings",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/f934b227-4f55-4c3c-8cf6-9b1c622fa217_image.png",
+          "sizes": [
+            {"id": "chico",  "label": "Chico (12 oz)",  "price": 160},
+            {"id": "grande", "label": "Grande (16 oz)", "price": 185},
+            {"id": "selva",  "label": "Selva (22 oz)",  "price": 210}
+          ],
+          "modifier_groups": ["bowl_spreads", "bowl_granel", "bowl_frutas", "bowl_proteina"]
+        }
+      ]
+    },
+    {
+      "id": "smoothies",
+      "name": "🥥 Smoothies",
+      "items": [
+        {
+          "id": "sm_agua_coco",
+          "name": "Agua de Coco / Açaí",
+          "description": "Agua de coco y açaí",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/2a07dff2-dcbe-4a27-a4e4-a04134278cb9_image.png",
+          "sizes": [
+            {"id": "grande", "label": "Grande", "price": 105},
+            {"id": "selva",  "label": "Selva",  "price": 125}
+          ],
+          "modifier_groups": ["bowl_proteina"]
+        },
+        {
+          "id": "sm_coco_fresa",
+          "name": "Coco / Fresa / Açaí",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/eff57ae3-4347-4481-85e6-e4f8cd9b87ae_image.png",
+          "sizes": [
+            {"id": "grande", "label": "Grande", "price": 105},
+            {"id": "selva",  "label": "Selva",  "price": 125}
+          ],
+          "modifier_groups": ["bowl_proteina"]
+        },
+        {
+          "id": "sm_coco_mango",
+          "name": "Coco / Mango / Açaí",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/d5e20499-f2fc-4225-ac5e-bc6f4792517e_image.png",
+          "sizes": [
+            {"id": "grande", "label": "Grande", "price": 105},
+            {"id": "selva",  "label": "Selva",  "price": 125}
+          ],
+          "modifier_groups": ["bowl_proteina"]
+        },
+        {
+          "id": "sm_mango_platano",
+          "name": "Mango / Plátano / Açaí",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/e9b55724-4bcd-4900-a70c-dfcb5a07b133_image.png",
+          "sizes": [
+            {"id": "grande", "label": "Grande", "price": 105},
+            {"id": "selva",  "label": "Selva",  "price": 125}
+          ],
+          "modifier_groups": ["bowl_proteina"]
+        },
+        {
+          "id": "sm_naranja",
+          "name": "Naranja / Açaí",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/bf3c34bf-c62c-43cf-9567-5d193b184487_image.png",
+          "sizes": [
+            {"id": "grande", "label": "Grande", "price": 105},
+            {"id": "selva",  "label": "Selva",  "price": 125}
+          ],
+          "modifier_groups": ["bowl_proteina"]
+        },
+        {
+          "id": "sm_yogurt",
+          "name": "Yogurt / Açaí",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/d2c04d68-332a-4c5e-82a7-6694dfd720a8_image.png",
+          "sizes": [
+            {"id": "grande", "label": "Grande", "price": 105},
+            {"id": "selva",  "label": "Selva",  "price": 125}
+          ],
+          "modifier_groups": ["bowl_proteina"]
+        }
+      ]
+    },
+    {
+      "id": "comidas",
+      "name": "🧇 Comidas",
+      "items": [
+        {
+          "id": "pdq_relleno_2",
+          "name": "Pão de Queijo Relleno (2 pz)",
+          "description": "Elige 2 rellenos",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/0b692684-ac45-4ffb-9b34-fbf5b6748d17_image.png",
+          "sizes": [{"id": "u", "label": "2 piezas", "price": 109}],
+          "modifier_groups": ["relleno_2"]
+        },
+        {
+          "id": "pdq_relleno_4",
+          "name": "Pão de Queijo Relleno (4 pz)",
+          "description": "Elige 4 rellenos",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/c01a0535-87d2-4ec2-bd98-2cbb6bf00ec1_image.png",
+          "sizes": [{"id": "u", "label": "4 piezas", "price": 218}],
+          "modifier_groups": ["relleno_4"]
+        },
+        {
+          "id": "pdq_4",
+          "name": "Pão de Queijo (4 pz)",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/dde4517b-9d8b-4bc9-9d1d-6a65e0fa408a_image.png",
+          "sizes": [{"id": "u", "label": "4 piezas", "price": 60}],
+          "modifier_groups": []
+        },
+        {
+          "id": "pdq_8",
+          "name": "Pão de Queijo (8 pz)",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/d5be3e5e-16d4-47fb-a2ac-d7c430cae3c8_image.png",
+          "sizes": [{"id": "u", "label": "8 piezas", "price": 100}],
+          "modifier_groups": []
+        },
+        {
+          "id": "avo_picana",
+          "name": "Avocado Toast Picaña",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/31165ef3-b3b8-427c-be0a-330133acc472_image.png",
+          "sizes": [{"id": "u", "label": "Plato", "price": 170}],
+          "modifier_groups": []
+        },
+        {
+          "id": "avo_completo",
+          "name": "Avocado Toast Completo",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/75794ecd-0668-424e-b3a9-b1caa5f03830_image.png",
+          "sizes": [{"id": "u", "label": "Plato", "price": 125}],
+          "modifier_groups": []
+        },
+        {
+          "id": "avo_veg",
+          "name": "Avocado Toast Vegetariano",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/2b46bd2b-5109-47ec-b209-76632bb227c7_image.png",
+          "sizes": [{"id": "u", "label": "Plato", "price": 115}],
+          "modifier_groups": []
+        },
+        {
+          "id": "huevo_extra",
+          "name": "Huevo Extra",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/5b19a394-b710-4dce-8a46-d045fdda555a_image.jpeg",
+          "sizes": [{"id": "u", "label": "Pieza", "price": 10}],
+          "modifier_groups": []
+        },
+        {
+          "id": "test_payment",
+          "name": "🧪 PRUEBA $1",
+          "description": "Item de prueba — borrar después",
+          "image": "",
+          "sizes": [{"id": "u", "label": "Prueba", "price": 1}],
+          "modifier_groups": []
+        }
+      ]
+    },
+    {
+      "id": "cold_drinks",
+      "name": "🍹 Cold Drinks",
+      "items": [
+        {
+          "id": "amendoim",
+          "name": "Amendoim",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/84b7ed35-80f7-45e8-af4a-ff8fb5ab0ef8_image.png",
+          "sizes": [{"id": "u", "label": "Vaso", "price": 74}],
+          "modifier_groups": ["leche"]
+        },
+        {
+          "id": "lichi_durazno",
+          "name": "Lichi-Durazno Soda",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/81037d9e-7dae-4e5b-9a98-04d92f37156a_image.png",
+          "sizes": [{"id": "u", "label": "Vaso", "price": 74}],
+          "modifier_groups": []
+        },
+        {
+          "id": "limonada_brasileira",
+          "name": "Limonada Brasileira",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/5667c80d-00ff-4c52-b135-5156ec36540c_image.png",
+          "sizes": [{"id": "u", "label": "Grande", "price": 65}],
+          "modifier_groups": []
+        },
+        {
+          "id": "mandarinada",
+          "name": "Mandarinada Brasileña",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/62b5aac6-7d17-4007-923f-40929fe07bde_image.png",
+          "sizes": [{"id": "u", "label": "Vaso", "price": 65}],
+          "modifier_groups": []
+        },
+        {
+          "id": "matcha_fresa",
+          "name": "Matcha-Fresa",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/88c9e47c-0858-40c2-9b28-52abadd71bc5_image.png",
+          "sizes": [{"id": "u", "label": "Vaso", "price": 74}],
+          "modifier_groups": ["leche"]
+        },
+        {
+          "id": "chai_vanilla_cold",
+          "name": "Chai Vanilla Latte",
+          "description": "",
+          "image": "",
+          "sizes": [{"id": "u", "label": "Vaso", "price": 74}],
+          "modifier_groups": ["temperatura", "leche"]
+        },
+        {
+          "id": "guarana_mandarina",
+          "name": "Guaraná-Mandarina",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/e2e92443-a97e-4f9d-9ded-16904bf667c3_image.png",
+          "sizes": [{"id": "u", "label": "Vaso", "price": 72}],
+          "modifier_groups": []
+        },
+        {
+          "id": "acai_berries",
+          "name": "Açaí & Berries",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/4ce76cf1-2a7f-4ba3-ae45-66c9ef585f63_image.png",
+          "sizes": [{"id": "u", "label": "Vaso", "price": 72}],
+          "modifier_groups": []
+        },
+        {
+          "id": "acerola_sandia",
+          "name": "Acerola, Sandía & Menta",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/96b61bf8-2ebc-4465-9c6e-7942901f6d1c_image.png",
+          "sizes": [{"id": "u", "label": "Vaso", "price": 72}],
+          "modifier_groups": ["endulzante"]
+        }
+      ]
+    },
+    {
+      "id": "coffee",
+      "name": "☕ Coffee Bar",
+      "items": [
+        {
+          "id": "americano",
+          "name": "Americano",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/f8917ef9-a454-4033-9a66-7949748d77d7_image.png",
+          "sizes": [{"id": "u", "label": "Taza", "price": 40}],
+          "modifier_groups": ["temperatura"]
+        },
+        {
+          "id": "honey_americano",
+          "name": "Honey Americano",
+          "description": "",
+          "image": "",
+          "sizes": [{"id": "u", "label": "Taza", "price": 45}],
+          "modifier_groups": ["temperatura"]
+        },
+        {
+          "id": "capuccino",
+          "name": "Capuccino",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/f602b759-a237-45ef-9d8e-4b9f3ed4e445_image.png",
+          "sizes": [{"id": "u", "label": "Taza", "price": 60}],
+          "modifier_groups": ["temperatura", "leche"]
+        },
+        {
+          "id": "latte",
+          "name": "Latte",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/748eca12-fc20-4662-8f05-f6885f8619b3_image.png",
+          "sizes": [{"id": "u", "label": "Taza", "price": 60}],
+          "modifier_groups": ["temperatura", "leche"]
+        },
+        {
+          "id": "vanilla_latte",
+          "name": "Vanilla Latte",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/85d8efcf-41e9-4ff1-bb73-8533c3c7fd23_image.png",
+          "sizes": [{"id": "u", "label": "Taza", "price": 65}],
+          "modifier_groups": ["temperatura", "leche"]
+        },
+        {
+          "id": "caramel_latte",
+          "name": "Caramel Latte",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/4de5b050-1621-4bf1-974b-9ce11cf718c0_image.png",
+          "sizes": [{"id": "u", "label": "Taza", "price": 65}],
+          "modifier_groups": ["temperatura", "leche"]
+        },
+        {
+          "id": "mocha",
+          "name": "Mocha",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/615d58cd-700a-456b-85ff-926dcb0bd509_image.png",
+          "sizes": [{"id": "u", "label": "Taza", "price": 65}],
+          "modifier_groups": ["temperatura", "leche"]
+        },
+        {
+          "id": "cremy_raf",
+          "name": "Cremy RAF",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/4c3e57e9-667d-47d3-b675-85bf3901c6ff_image.png",
+          "sizes": [{"id": "u", "label": "Taza", "price": 65}],
+          "modifier_groups": ["leche"]
+        },
+        {
+          "id": "dirty_chai",
+          "name": "Dirty Chai",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/e331f263-2fc7-4a7a-a387-e83b33f36c1a_image.png",
+          "sizes": [{"id": "u", "label": "Taza", "price": 75}],
+          "modifier_groups": ["temperatura", "leche"]
+        },
+        {
+          "id": "frappuccino",
+          "name": "Frappuccino",
+          "description": "",
+          "image": "",
+          "sizes": [{"id": "u", "label": "Vaso", "price": 75}],
+          "modifier_groups": ["leche"]
+        },
+        {
+          "id": "london_fog",
+          "name": "London Fog",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/ff318090-d767-432e-a066-85bee8fcfbda_image.png",
+          "sizes": [{"id": "u", "label": "Taza", "price": 70}],
+          "modifier_groups": ["temperatura", "leche"]
+        }
+      ]
+    },
+    {
+      "id": "botes",
+      "name": "🍯 Botes 1L",
+      "items": [
+        {
+          "id": "bote_guarana",
+          "name": "Açaí y Guaraná 1L",
+          "description": "Bote para llevar a casa",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/7218bf0b-b313-42f7-a7d2-80139e62ea79_image.jpeg",
+          "sizes": [{"id": "u", "label": "1 L", "price": 350}],
+          "modifier_groups": ["botes_toppings"]
+        },
+        {
+          "id": "bote_platano",
+          "name": "Açaí y Plátano 1L",
+          "description": "Bote para llevar a casa",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/519137d9-9395-4dd4-a79a-292c5561ad1b_image.jpeg",
+          "sizes": [{"id": "u", "label": "1 L", "price": 350}],
+          "modifier_groups": ["botes_toppings"]
+        },
+        {
+          "id": "bote_yogurt",
+          "name": "Açaí y Yogurt Griego 1L",
+          "description": "Bote para llevar a casa",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/f11accfc-6f89-427f-83bd-4638ad19aaa7_image.jpeg",
+          "sizes": [{"id": "u", "label": "1 L", "price": 350}],
+          "modifier_groups": ["botes_toppings"]
+        }
+      ]
+    },
+    {
+      "id": "merch",
+      "name": "🛒 Merch",
+      "items": [
+        {
+          "id": "pulsera_acai",
+          "name": "Pulsera con Semilla de Açaí",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/c602ce2d-1f96-4566-bcbb-579b3c37e71d_image.png",
+          "sizes": [{"id": "u", "label": "Unidad", "price": 120}],
+          "modifier_groups": []
+        },
+        {
+          "id": "tote_tarot",
+          "name": "Tote Bag Tarot",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/63d90803-f359-43d4-9329-3b36b2869819_image.png",
+          "sizes": [{"id": "u", "label": "Unidad", "price": 169}],
+          "modifier_groups": []
+        },
+        {
+          "id": "gorra_obsessed",
+          "name": "Gorra Açaí Obsessed",
+          "description": "",
+          "image": "https://img.postershop.me/cdn-cgi/image/width=1024,format=webp/https://img.postershop.me/25380/f31e551d-206c-45c5-81f8-05dc1c7ba5f1_image.png",
+          "sizes": [{"id": "u", "label": "Unidad", "price": 250}],
+          "modifier_groups": []
+        },
+        {
+          "id": "stickers",
+          "name": "Stickers",
+          "description": "",
+          "image": "",
+          "sizes": [{"id": "u", "label": "Unidad", "price": 25}],
+          "modifier_groups": []
+        }
+      ]
+    }
+  ]
+}

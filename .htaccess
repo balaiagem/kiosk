@@ -1,0 +1,5 @@
+# Disable LiteSpeed caching for the kiosk folder so menu and PHP responses
+# are always served fresh during setup. Safe on HostGator.
+<IfModule LiteSpeed>
+    CacheDisable public /
+</IfModule>

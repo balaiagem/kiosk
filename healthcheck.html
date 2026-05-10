@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiosk Health Check</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 720px; margin: 40px auto; padding: 0 20px; color: #241d22; }
+h1 { color: #60192f; }
+.row { padding: 14px 16px; margin: 8px 0; border-radius: 8px; border-left: 6px solid #ccc; background: #f8f3f5; }
+.row.ok { border-left-color: #4caf50; background: #f0f8f0; }
+.row.fail { border-left-color: #d23c5c; background: #fbe8ec; }
+.row.warn { border-left-color: #f0c674; background: #fdf6e3; }
+.row pre { background: rgba(0,0,0,0.05); padding: 8px; border-radius: 4px; overflow-x: auto; font-size: 12px; margin-top: 8px; }
+.label { font-weight: 700; }
+button { background: #60192f; color: white; border: 0; padding: 10px 20px; border-radius: 999px; font: inherit; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1>Kiosk Health Check</h1>
+<p>Esta página verifica que cada parte del kiosko está funcionando. Comparte los resultados si algo falla.</p>
+<button onclick="run()">Volver a verificar</button>
+<div id="results"></div>
+
+<script>
+const checks = [
+  {
+    name: 'menu.json',
+    test: async () => {
+      const r = await fetch('menu.json?v=' + Date.now());
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const j = await r.json();
+      const cats = (j.categories || []).length;
+      const items = (j.categories || []).reduce((n,c) => n + (c.items||[]).length, 0);
+      const groups = Object.keys(j.modifier_groups || {}).length;
+      return `${cats} categorías · ${items} productos · ${groups} grupos de modificadores`;
+    }
+  },
+  {
+    name: 'api/list-devices.php (Mercado Pago credentials)',
+    test: async () => {
+      const r = await fetch('api/list-devices.php');
+      const j = await r.json();
+      if (j.ok === false) throw new Error(j.error || 'falló');
+      const devs = (j.devices && j.devices.devices) || [];
+      if (devs.length === 0) return 'WARN: sin dispositivos pareados — habilita modo integración o llama a MP support';
+      return devs.map(d => `${d.id} (${d.operating_mode || '?'})`).join(', ');
+    }
+  },
+  {
+    name: 'api/orders.php (kitchen feed)',
+    test: async () => {
+      const r = await fetch('api/orders.php');
+      const j = await r.json();
+      if (!j.ok) throw new Error(j.error || 'falló');
+      return `${(j.orders||[]).length} órdenes activas`;
+    }
+  },
+  {
+    name: 'api/config.php (acceso bloqueado, esto es bueno)',
+    test: async () => {
+      const r = await fetch('api/config.php');
+      if (r.status === 403) return 'BLOCKED 403 ✓ (correcto)';
+      if (r.status === 404) throw new Error('config.php no existe — copia api/config.example.php');
+      return `HTTP ${r.status} ⚠ (revisa .htaccess; el archivo no debería ser visible)`;
+    }
+  },
+  {
+    name: 'PHP version',
+    test: async () => {
+      const r = await fetch('api/list-devices.php');
+      const ct = r.headers.get('content-type');
+      if (!ct || !ct.includes('json')) throw new Error('respuesta no es JSON: ' + ct);
+      return 'OK (responde JSON)';
+    }
+  }
+];
+
+async function run() {
+  const out = document.getElementById('results');
+  out.innerHTML = '';
+  for (const c of checks) {
+    const row = document.createElement('div');
+    row.className = 'row';
+    row.innerHTML = `<div class="label">${c.name}</div><div>Probando...</div>`;
+    out.appendChild(row);
+    try {
+      const msg = await c.test();
+      const isWarn = String(msg).startsWith('WARN');
+      row.className = 'row ' + (isWarn ? 'warn' : 'ok');
+      row.innerHTML = `<div class="label">${isWarn ? '⚠' : '✓'} ${c.name}</div><div>${msg}</div>`;
+    } catch (e) {
+      row.className = 'row fail';
+      row.innerHTML = `<div class="label">✗ ${c.name}</div><div>${e.message}</div>`;
+    }
+  }
+}
+run();
+</script>
+</body>
+</html>

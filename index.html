@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#60192f">
+<title>Amazonia Bowls — Ordena aquí</title>
+<link rel="stylesheet" href="assets/kiosk.css?v=3">
+</head>
+<body class="screen-attract">
+
+<!-- ATTRACT SCREEN -->
+<section id="attract" class="screen">
+  <div class="attract-inner">
+    <div class="logo">AMAZONIA BOWLS</div>
+    <h1>Toca para ordenar</h1>
+    <p class="sub">Tu bowl de açaí en minutos</p>
+    <button class="btn-primary btn-huge" data-action="start">EMPEZAR ORDEN</button>
+  </div>
+</section>
+
+<!-- MENU SCREEN -->
+<section id="menu" class="screen hidden">
+  <header class="topbar">
+    <div class="brand">AMAZONIA BOWLS</div>
+    <button class="btn-ghost" data-action="cancel">Cancelar</button>
+  </header>
+
+  <nav id="categories" class="categories"></nav>
+
+  <main id="items" class="items-grid"></main>
+
+  <footer class="cart-bar" id="cart-bar">
+    <div class="cart-summary">
+      <span id="cart-count">0</span> artículo<span id="cart-count-s">s</span>
+      · <strong>$<span id="cart-total">0</span></strong>
+    </div>
+    <button class="btn-primary" data-action="view-cart">Ver carrito →</button>
+  </footer>
+</section>
+
+<!-- ITEM MODAL -->
+<div id="item-modal" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close" data-action="close-item">✕</button>
+    <div id="item-modal-body"></div>
+    <footer class="modal-footer">
+      <div class="price-tag">$<span id="item-price">0</span></div>
+      <button class="btn-primary" data-action="add-to-cart">Agregar al carrito</button>
+    </footer>
+  </div>
+</div>
+
+<!-- CART MODAL -->
+<div id="cart-modal" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <button class="modal-close" data-action="close-cart">✕</button>
+    <h2>Tu pedido</h2>
+    <ul id="cart-list" class="cart-list"></ul>
+    <div class="cart-totals">
+      <div class="row"><span>Total</span><strong>$<span id="cart-total-2">0</span> MXN</strong></div>
+    </div>
+    <button class="btn-primary btn-block" data-action="checkout">Pagar con tarjeta</button>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div id="pay-modal" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <div id="pay-state" class="pay-state">
+      <div class="spinner"></div>
+      <h2 id="pay-title">Conectando con la terminal…</h2>
+      <p id="pay-sub">Espera un momento</p>
+      <div id="pay-amount" class="pay-amount"></div>
+      <button id="pay-cancel" class="btn-ghost hidden" data-action="cancel-payment">Cancelar pago</button>
+      <button id="pay-done" class="btn-primary hidden" data-action="finish-order">Listo</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/kiosk-v5.js"></script>
+</body>
+</html>

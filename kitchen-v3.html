@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cocina — Amazonia Bowls</title>
+<link rel="stylesheet" href="assets/kitchen-v3.css">
+</head>
+<body>
+
+<header class="kt-bar">
+  <div class="kt-brand">AMAZONIA · COCINA</div>
+  <div class="kt-tabs">
+    <button class="kt-tab active" data-tab="active">
+      Activos <span class="kt-badge" id="kt-badge-active">0</span>
+    </button>
+    <button class="kt-tab" data-tab="done">
+      Completados <span class="kt-badge" id="kt-badge-done">0</span>
+    </button>
+  </div>
+  <div class="kt-controls">
+    <button id="kt-sound-toggle" class="kt-btn-ghost">🔔 Alertas: ON</button>
+    <span id="kt-clock"></span>
+  </div>
+</header>
+
+<main id="kt-grid" class="kt-grid"></main>
+
+<div id="kt-empty" class="kt-empty hidden">
+  <h2 id="kt-empty-title">Sin pedidos pendientes</h2>
+  <p id="kt-empty-sub">Esperando órdenes del kiosko…</p>
+</div>
+
+<script src="assets/kitchen-v3.js"></script>
+</body>
+</html>
