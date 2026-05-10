@@ -1,0 +1,319 @@
+/* Amazonia Bowls Kiosk — touch-optimised tablet UI */
+:root {
+  --wine-900: #4b1425;
+  --wine-700: #60192f;
+  --wine-500: #783c4e;
+  --wine-100: #f8f3f5;
+  /* legacy aliases so existing rules keep working */
+  --purple-900: var(--wine-900);
+  --purple-700: var(--wine-700);
+  --purple-500: var(--wine-500);
+  --green-400: #c9e265;
+  --cream: #fdf8ef;
+  --ink: #241d22;
+  --ink-soft: #8f8a8c;
+  --line: #f0e6e9;
+  --danger: #d23c5c;
+  --radius: 18px;
+  --radius-lg: 28px;
+  --shadow: 0 8px 24px rgba(75,20,37,0.18);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  user-select: none;
+  -webkit-user-select: none;
+  font-size: 18px;
+  line-height: 1.4;
+}
+button { font: inherit; cursor: pointer; border: 0; }
+.hidden { display: none !important; }
+
+/* SCREENS */
+.screen { position: fixed; inset: 0; display: flex; flex-direction: column; }
+
+/* ATTRACT */
+#attract {
+  background: linear-gradient(135deg, var(--wine-900) 0%, var(--wine-500) 100%);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+.attract-inner .logo {
+  letter-spacing: 4px;
+  font-weight: 900;
+  font-size: 28px;
+  opacity: 0.85;
+  margin-bottom: 60px;
+}
+.attract-inner h1 {
+  font-size: 88px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  line-height: 1.05;
+}
+.attract-inner .sub {
+  font-size: 24px;
+  opacity: 0.8;
+  margin-bottom: 80px;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: var(--wine-700);
+  color: white;
+  padding: 16px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 18px;
+  transition: transform 0.05s;
+}
+.btn-primary:active { transform: scale(0.97); }
+.btn-huge {
+  padding: 28px 64px;
+  font-size: 28px;
+  border-radius: 999px;
+  background: var(--green-400);
+  color: var(--wine-900);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+}
+.btn-block { width: 100%; padding: 22px; font-size: 22px; }
+.btn-ghost {
+  background: transparent;
+  color: inherit;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  opacity: 0.7;
+}
+.btn-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* MENU SCREEN */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: white;
+  border-bottom: 1px solid var(--line);
+}
+.topbar .brand { font-weight: 900; letter-spacing: 2px; color: var(--wine-900); }
+
+.categories {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  overflow-x: auto;
+  background: white;
+  border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+.categories button {
+  background: transparent;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  border: 2px solid transparent;
+}
+.categories button.active {
+  background: var(--wine-900);
+  color: white;
+}
+
+.items-grid {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  align-content: start;
+}
+.item-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  color: inherit;
+}
+.item-card .img {
+  height: 160px;
+  background: linear-gradient(135deg, var(--wine-500), var(--wine-900));
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+}
+.item-card .body { padding: 16px 18px 18px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.item-card h3 { font-size: 20px; font-weight: 800; }
+.item-card .desc { color: var(--ink-soft); font-size: 14px; flex: 1; }
+.item-card .price { font-weight: 800; color: var(--wine-700); margin-top: 8px; }
+
+.cart-bar {
+  background: var(--wine-900);
+  color: white;
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.cart-bar .btn-primary {
+  background: var(--green-400);
+  color: var(--wine-900);
+}
+.cart-bar.empty { display: none; }
+
+/* MODALS */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(28,22,51,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+}
+.modal-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 720px;
+  max-height: 92vh;
+  overflow-y: auto;
+  padding: 32px;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--line);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ITEM MODAL */
+.item-detail h2 { font-size: 30px; margin-bottom: 8px; padding-right: 40px; }
+.item-detail .desc { color: var(--ink-soft); margin-bottom: 24px; }
+.option-group { margin-bottom: 24px; }
+.option-group h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--ink-soft);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.option-group .hint { font-size: 13px; color: var(--ink-soft); font-weight: 400; text-transform: none; letter-spacing: 0; }
+.option-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+.option-pill {
+  border: 2px solid var(--line);
+  background: white;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: inherit;
+}
+.option-pill.selected { border-color: var(--wine-700); background: rgba(138,77,214,0.06); }
+.option-pill .name { font-weight: 700; }
+.option-pill .extra-price { font-size: 13px; color: var(--ink-soft); }
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  gap: 16px;
+}
+.price-tag { font-size: 28px; font-weight: 900; color: var(--wine-900); }
+
+/* CART */
+.cart-list { list-style: none; margin: 16px 0 24px; }
+.cart-list li {
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+.cart-list li:last-child { border-bottom: 0; }
+.cart-list .ci-name { font-weight: 700; }
+.cart-list .ci-mods { font-size: 13px; color: var(--ink-soft); margin-top: 2px; }
+.cart-list .ci-actions { display: flex; gap: 6px; align-items: center; }
+.cart-list button {
+  width: 36px; height: 36px;
+  background: var(--line);
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 16px;
+}
+.cart-totals { border-top: 2px solid var(--ink); padding-top: 16px; margin-bottom: 22px; }
+.cart-totals .row { display: flex; justify-content: space-between; font-size: 22px; }
+
+/* PAYMENT MODAL */
+.pay-state { text-align: center; padding: 24px 12px; }
+.pay-state h2 { font-size: 28px; margin-bottom: 8px; }
+.pay-state p { color: var(--ink-soft); margin-bottom: 24px; }
+.pay-amount { font-size: 56px; font-weight: 900; color: var(--wine-900); margin-bottom: 24px; }
+.spinner {
+  width: 64px; height: 64px;
+  border: 6px solid var(--line);
+  border-top-color: var(--wine-700);
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.pay-state.success .spinner,
+.pay-state.error .spinner { display: none; }
+.pay-state.success::before,
+.pay-state.error::before {
+  content: "";
+  display: block;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  font-size: 48px;
+  font-weight: 900;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pay-state.success::before { background: var(--green-400); content: "✓"; color: var(--wine-900); }
+.pay-state.error::before { background: var(--danger); content: "!"; }
+
+/* PORTRAIT TUNING (typical 10" tablet portrait ≈ 800x1280) */
+@media (orientation: portrait) {
+  .items-grid { grid-template-columns: repeat(2, 1fr); }
+}
